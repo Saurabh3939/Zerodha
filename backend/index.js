@@ -13,7 +13,13 @@ const uri = process.env.MONGO_URL;
 const PORT = process.env.PORT || 3002;
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://zerodha-1-wtmc.onrender.com/", "http://localhost:3000"],
+    methods: ["GET", "POSTT"],
+    credentials: true,
+  }),
+);
 app.use(bodyParser.json());
 
 // app.get("/addHoldings", async (req, res) => {
